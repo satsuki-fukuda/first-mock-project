@@ -1,0 +1,84 @@
+.item-list__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.item-list__tabs {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 30px;
+}
+
+.tab-item {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.tab-item.active {
+    color: #ff5a5f;
+    border-bottom: 2px solid #ff5a5f;
+}
+
+.item-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.item-card {
+    width: calc((100% - 60px) / 4);
+    margin-bottom: 30px;
+}
+
+.item-card a {
+    text-decoration: none;
+    color: #333;
+}
+
+.item-card__img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.item-card__img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-card__no-img {
+    font-size: 18px;
+    color: #666;
+}
+
+.item-card__name {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.sold-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 4px 12px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+@media screen and (max-width: 768px) {
+    .item-card {
+        width: calc((100% - 20px) / 2);
+    }
+}

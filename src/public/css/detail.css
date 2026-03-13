@@ -1,0 +1,187 @@
+.detail__content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.detail__flex {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.detail__img-wrapper {
+    flex: 1;
+    background-color: #d9d9d9;
+    position: relative;
+}
+
+.detail__img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+}
+
+.detail__info {
+    flex: 1;
+}
+
+.detail__name {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.detail__brand {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.detail__price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.detail__price span {
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 5px;
+}
+
+.detail__actions {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.action-item {
+    text-align: center;
+}
+
+.icon-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.action-item p {
+    font-size: 12px;
+    margin: 0;
+    color: #333;
+}
+
+.btn-purchase {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #ff5a5f;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-bottom: 40px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin: 30px 0 15px;
+}
+
+.meta-item {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.meta-label {
+    width: 120px;
+    font-weight: bold;
+}
+
+.meta-tags .tag {
+    background-color: #f0f0f0;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+/* コメント欄 */
+.comment-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.user-icon {
+    width: 35px;
+    height: 35px;
+    background-color: #d9d9d9;
+    border-radius: 50%;
+}
+
+.comment-body {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-comment {
+    width: 100%;
+    background-color: #ff5a5f;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-like {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.sold-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 4px 12px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+}

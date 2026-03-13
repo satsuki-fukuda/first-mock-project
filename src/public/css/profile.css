@@ -1,0 +1,97 @@
+.mypage__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.mypage__user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.user-info__img-placeholder {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    background-color: #d9d9d9;
+    border-radius: 50%;
+}
+
+.user-info__name h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.btn-edit {
+    border: 1px solid #ff5a5f;
+    color: #ff5a5f;
+    padding: 8px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.mypage__tabs {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 30px;
+}
+
+.tab-item {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.tab-item.active {
+    color: #ff5a5f;
+    border-bottom: 2px solid #ff5a5f;
+    margin-bottom: -1px;
+}
+
+.item-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.item-card {
+    width: calc((100% - 60px) / 4);
+    margin-bottom: 20px;
+}
+
+.item-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item-card a {
+    text-decoration: none;
+    color: #333;
+}
+
+.item-card__img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-card__name {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+    .item-card {
+        width: calc((100% - 20px) / 2);
+    }
+}
