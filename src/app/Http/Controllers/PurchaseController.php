@@ -7,6 +7,7 @@ use App\Http\Requests\PurchaseRequest;
 use App\Http\Requests\AddressRequest;
 use App\Models\Purchase;
 use App\Models\Item;
+use App\Models\ShippingAddress;
 use Illuminate\Support\Facades\Auth;
 use Stripe\StripeClient;
 
@@ -51,25 +52,48 @@ class PurchaseController extends Controller
     public function show($item_id)
     {
         $item = Item::findOrFail($item_id);
-        return view('purchase', compact('item'));
+        $user = Auth::user();
+
+        // この商品に対して保存された配送先があるか確認
+        $shippingAddress = ShippingAddress::where('user_id', $user->id)
+            ->where('item_id', $item_id)
+            ->latest()
+            ->first();
+
+        // 配送先があればそれを使う、なければUserの初期値をオブジェクトとして渡す
+        // これにより、Blade側の記述（$address->postal_code等）を統一できます
+        $address = $shippingAddress ?: (object)[
+            'postal_code' => $user->postal_code,
+            'address'     => $user->address,
+            'building'    => $user->building,
+        ];
+        return view('purchase', compact('item', 'address'));
     }
 
     public function editAddress($item_id)
     {
         $item = Item::findOrFail($item_id);
         $user = Auth::user();
+                $address = ShippingAddress::where('user_id', $user->id)
+            ->where('item_id', $item_id)
+            ->first() ?: $user;
+
+
         return view('address', compact('item', 'user'));
     }
 
     public function updateAddress(AddressRequest $request, $item_id)
     {
         $data = $request->validated();
-        $user = Auth::user();
-        $user->update([
-            'postal_code' => $data['postal_code'],
-            'address'     => $data['address'],
-            'building'    => $request->building,
-        ]);
+        ShippingAddress::updateOrCreate(
+            ['user_id' => Auth::id()],
+            [
+                'item_id'     => $item_id,
+                'postal_code' => $data['postal_code'],
+                'address'     => $data['address'],
+                'building'    => $request->building,
+            ]
+        );
         return redirect()->route('purchase.show', ['item_id' => $item_id])->with('message', '配送先を変更しました');
     }
 

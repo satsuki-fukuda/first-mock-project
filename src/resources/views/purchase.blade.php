@@ -50,8 +50,8 @@
         <div class="error-message">{{ $message }}</div>
         @enderror
         <div class="shipping-address__detail">
-          <p>〒 {{ Auth::user()->postal_code }}</p>
-          <p>{{ Auth::user()->address }}{{ Auth::user()->building }}</p>
+          <p>〒 {{ $address->postal_code }}</p>
+          <p>{{ $address->address }}{{ $address->building }}</p>
         </div>
       </div>
     </div>

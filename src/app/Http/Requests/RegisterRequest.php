@@ -27,7 +27,7 @@ class RegisterRequest extends FormRequest
             'name' => 'required|string|max:20',
             'email' => 'required|email|max:255',
             'password' => 'required|string|min:8',
-            'password_confirmation' => 'required|string|min:8|same:password',
+            'password_confirmation' => 'required|string|same:password',
         ];
         return $rules;
     }

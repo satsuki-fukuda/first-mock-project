@@ -42,7 +42,7 @@ class ExhibitionRequest extends FormRequest
             'image.required' => 'アップロード必須、拡張子が.jpegもしくは.png',
             'categories.required' => '選択必須',
             'condition.required' => '選択必須',
-            'price.required' => '入力必須、数値型、0円以上',
+            'price.required' => '入力必須、数字で入力、0円以上',
         ];
     }
 }

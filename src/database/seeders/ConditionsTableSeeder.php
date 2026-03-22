@@ -14,9 +14,26 @@ class ConditionsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        // 使用しているDBドライバー名を取得
+        $driver = DB::getDriverName();
+
+        // 1. 外部キー制約の無効化（DBの種類で分岐）
+        if ($driver === 'mysql') {
+            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        } elseif ($driver === 'sqlite') {
+            DB::statement('PRAGMA foreign_keys = OFF;');
+        }
+
+        // 2. テーブルのクリア
         DB::table('conditions')->truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+        // 3. 外部キー制約の有効化
+        if ($driver === 'mysql') {
+            DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        } elseif ($driver === 'sqlite') {
+            DB::statement('PRAGMA foreign_keys = ON;');
+        }
+
 
         $params = [
             ['content' => '良好'],

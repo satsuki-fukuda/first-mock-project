@@ -14,10 +14,25 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        DB::table('categories')->truncate();
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+         // 現在使用しているDBのドライバー名を取得（mysql か sqlite か）
+        $driver = DB::getDriverName();
 
+        // 1. 外部キー制約の無効化（DBの種類で分岐）
+        if ($driver === 'mysql') {
+            DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        } elseif ($driver === 'sqlite') {
+            DB::statement('PRAGMA foreign_keys = OFF;');
+        }
+
+        // 2. テーブルのクリア
+        DB::table('categories')->truncate();
+
+        // 3. 外部キー制約の有効化
+        if ($driver === 'mysql') {
+            DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        } elseif ($driver === 'sqlite') {
+            DB::statement('PRAGMA foreign_keys = ON;');
+        }
         $params = [
             ['content' => 'ファッション'],
             ['content' => '家電'],

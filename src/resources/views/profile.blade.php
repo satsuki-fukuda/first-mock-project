@@ -35,6 +35,12 @@
       <a href="/item/{{ $item->id }}">
         <div class="item-card__img-wrapper">
           <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" class="item-card__img">
+                @if($item->is_sold)
+        <div class="sold-label">
+          <span>SOLD</span>
+        </div>
+      @endif
+
         </div>
         <p class="item-card__name">{{ $item->name ?? '商品名' }}</p>
       </a>

@@ -37,6 +37,7 @@ class ProfileRequest extends FormRequest
         return [
             'image.required' => '拡張子が.jpegもしくは.png',
             'name.required' => 'お名前を入力してください',
+            'name.max' => 'ユーザー名は20文字以下で入力してください',
             'postal_code.required' => '郵便番号はハイフンありの形式（000-0000）で入力してください',
             'address.required' => '住所を入力してください',
         ];

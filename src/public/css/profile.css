@@ -83,11 +83,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .item-card__name {
     margin-top: 8px;
     font-size: 14px;
+}
+
+.sold-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 4px 12px;
+    font-weight: bold;
+    z-index: 10;
 }
 
 @media screen and (max-width: 768px) {

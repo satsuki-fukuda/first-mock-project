@@ -24,7 +24,6 @@ class PurchaseRequest extends FormRequest
     public function rules()
     {
         return [
-            // 文字列であること、かつ指定の選択肢内であることをバリデート
             'payment_method' => 'required|string|in:konbini,card',
         ];
     }
@@ -33,9 +32,7 @@ class PurchaseRequest extends FormRequest
     {
         $validator->after(function ($validator) {
             $user = auth()->user();
-            // ユーザーの住所情報が空でないかチェック
             if (empty($user->postal_code) || empty($user->address)) {
-                // 'address' というキー名でエラーを登録
                 $validator->errors()->add('address', '配送先を登録してください。');
             }
         });
@@ -46,7 +43,6 @@ class PurchaseRequest extends FormRequest
     {
         return [
             'payment_method.required' => '支払い方法を選択してください',
-            'payment_method.in' => '有効な支払い方法を選択してください',
         ];
     }
 }
