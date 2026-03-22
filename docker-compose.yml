@@ -42,9 +42,8 @@ services:
         ports:
             - 8080:80
 
-        # ...既存のサービスの後に追記
     mailhog:
         image: mailhog/mailhog:latest
         ports:
-            - "1025:1025" # SMTPサーバー用
-            - "8025:8025" # ブラウザ確認画面用
+            - "1025:1025"
+            - "8025:8025"
