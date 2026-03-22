@@ -54,14 +54,11 @@ class PurchaseController extends Controller
         $item = Item::findOrFail($item_id);
         $user = Auth::user();
 
-        // この商品に対して保存された配送先があるか確認
         $shippingAddress = ShippingAddress::where('user_id', $user->id)
             ->where('item_id', $item_id)
             ->latest()
             ->first();
 
-        // 配送先があればそれを使う、なければUserの初期値をオブジェクトとして渡す
-        // これにより、Blade側の記述（$address->postal_code等）を統一できます
         $address = $shippingAddress ?: (object)[
             'postal_code' => $user->postal_code,
             'address'     => $user->address,

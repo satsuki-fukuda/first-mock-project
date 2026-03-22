@@ -41,16 +41,6 @@ class ItemController extends Controller
         return $this->index($request);
     }
 
-    public function mail()
-    {
-        return view('mail');
-    }
-
-    public function edit()
-    {
-        return view('mypage.profile_edit');
-    }
-
     public function exhibition()
     {
         $categories = Category::all();
@@ -75,21 +65,12 @@ class ItemController extends Controller
         return view('profile', compact('user', 'items'));
     }
 
-    public function address($item_id)
-    {
-        return view('address');
-    }
-
     public function detail($item_id)
     {
         $item = Item::findOrFail($item_id);
         return view('detail', compact('item'));
     }
 
-    public function purchase($item_id)
-    {
-        return view('purchase.index', ['item_id' => $item_id]);
-    }
     public function store(ExhibitionRequest $request)
     {
         $validated = $request->validated();
