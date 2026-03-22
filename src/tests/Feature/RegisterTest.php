@@ -8,7 +8,7 @@ use Tests\TestCase;
 class RegisterTest extends TestCase
 {
     use RefreshDatabase;
-    //会員登録機能--名前バリデーション
+    //会員登録機能--名前未入力バリデーション
     public function test_register_user_validate_name()
     {
         $response = $this->post('/register', [
@@ -25,7 +25,7 @@ class RegisterTest extends TestCase
         $this->assertEquals('お名前を入力してください', $errors->first('name'));
     }
 
-    //会員登録機能--メールバリデーション
+    //会員登録機能--メール未入力バリデーション
     public function test_register_user_validate_email()
     {
         $response = $this->post('/register', [
@@ -42,7 +42,7 @@ class RegisterTest extends TestCase
         $this->assertEquals('メールアドレスを入力してください', $errors->first('email'));
     }
 
-    //会員登録機能--パスワードバリデーション
+    //会員登録機能--パスワード未入力バリデーション
     public function test_register_user_validate_password()
     {
         $response = $this->post('/register', [
@@ -104,12 +104,10 @@ class RegisterTest extends TestCase
             'password' => "password",
             'password_confirmation' => "password",
         ]);
+
         $response->assertRedirect(route('verification.notice'));
         $this->assertDatabaseHas('users', [
             'email' => $email,
         ]);
     }
-
-    
-
 }

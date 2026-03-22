@@ -10,7 +10,7 @@ use App\Models\User;
 class LoginTest extends TestCase
 {
     use RefreshDatabase;
-    //ログイン機能--メールバリデーション
+    //ログイン機能--メール未入力バリデーション
     public function test_login_user_validate_email()
     {
         $response = $this->post('/login', [
@@ -25,7 +25,7 @@ class LoginTest extends TestCase
         $this->assertEquals('メールアドレスを入力してください', $errors->first('email'));
     }
 
-    //ログイン機能--パスワードバリデーション
+    //ログイン機能--パスワード未入力バリデーション
     public function test_login_user_validate_password()
     {
         $response = $this->post('/login', [
@@ -80,6 +80,4 @@ class LoginTest extends TestCase
         $response->assertRedirect('/');
         $this->assertGuest();
     }
-
-    
 }
