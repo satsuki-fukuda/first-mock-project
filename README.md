@@ -40,7 +40,7 @@ php artisan db:seed
 php artisan storage:link
 ```
 **メール認証**
-ローカル環境でのメール送信テストにMailHogを使用します
+<br>ローカル環境でのメール送信テストにMailHogを使用します</br>
 1. `docker-compose up -d mailhog`
 2. .envに以下の環境変数を追加
 ``` text
@@ -57,10 +57,9 @@ MAIL_FROM_ADDRESS=任意のメールアドレス
 5. MailHogのUI上にメールが表示されます。
 
 **決済機能について**
-Stripeを使用します
-公式リンク：https://stripe.com/jp
-コンビニ支払い、カード支払いを設定していますがコンビニ支払い選択でレシート印刷画面に遷移するため、カード支払いをテストカードにて行い予定の画面遷移を行います。
-.envにAPIキーを設定する
+<br>Stripeを使用します。公式リンク：https://stripe.com/jp</br>
+<br>コンビニ支払い、カード支払いを設定していますがコンビニ支払い選択でレシート印刷画面に遷移するため、カード支払いをテストカードにて行い予定の画面遷移を行います。</br>
+<br>.envにAPIキーを設定する</br>
 ``` text
 STRIPE_PUBLIC_KEY=
 STRIPE_SECRET_KEY=
@@ -68,7 +67,7 @@ STRIPE_WEBHOOK_SECRET=
 ```
 
 **PHPUnitテストについて**
-vendor/bin/phpunit コマンドにて実行
+<br>vendor/bin/phpunit コマンドにて実行</br>
 
 ## 使用技術(実行環境)
 - PHP8.3.0
@@ -76,9 +75,19 @@ vendor/bin/phpunit コマンドにて実行
 - MySQL8.0.26
 
 ## テーブル設計
+<img width="819" height="190" alt="スクリーンショット 2026-03-22 21 33 40" src="https://github.com/user-attachments/assets/c14b0ea5-a407-460d-ae28-392051a7ac00" />
+<img width="819" height="274" alt="スクリーンショット 2026-03-22 21 33 56" src="https://github.com/user-attachments/assets/7b9c94f8-130f-4381-83f8-3c7749411cb1" />
+<img width="818" height="130" alt="スクリーンショット 2026-03-22 21 34 19" src="https://github.com/user-attachments/assets/1728ee94-3519-490d-8308-b432867bec31" />
+<img width="819" height="300" alt="スクリーンショット 2026-03-22 21 34 31" src="https://github.com/user-attachments/assets/a570db2a-81c8-49ae-8f02-6acb7003431d" />
+<img width="820" height="159" alt="スクリーンショット 2026-03-22 21 34 46" src="https://github.com/user-attachments/assets/83611754-5610-4e69-b310-1d10045cc0e6" />
+<img width="817" height="176" alt="スクリーンショット 2026-03-22 21 35 01" src="https://github.com/user-attachments/assets/cbc32e03-50d4-4c90-91fb-8cffaa4a70f2" />
+<img width="818" height="131" alt="スクリーンショット 2026-03-22 21 35 22" src="https://github.com/user-attachments/assets/0f181931-aef8-4460-aae2-6549d4bd72f4" />
+<img width="819" height="151" alt="スクリーンショット 2026-03-22 21 35 43" src="https://github.com/user-attachments/assets/f3a5edda-454c-4378-879c-756b514bfd99" />
+<img width="818" height="211" alt="スクリーンショット 2026-03-22 21 36 13" src="https://github.com/user-attachments/assets/76831807-5ddb-483a-abc5-0ce736ddc87e" />
 
 
 ## ER図
+<img width="354" height="502" alt="スクリーンショット 2026-03-22 17 10 01" src="https://github.com/user-attachments/assets/c1148190-ed46-457b-bcf5-269309144328" />
 
 
 ## URL
