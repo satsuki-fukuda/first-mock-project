@@ -40,7 +40,7 @@ php artisan db:seed
 php artisan storage:link
 ```
 **メール認証**
-ローカル環境でのメール送信テストにMailHogを使用します
+<br>ローカル環境でのメール送信テストにMailHogを使用します</br>
 1. `docker-compose up -d mailhog`
 2. .envに以下の環境変数を追加
 ``` text
@@ -57,10 +57,10 @@ MAIL_FROM_ADDRESS=任意のメールアドレス
 5. MailHogのUI上にメールが表示されます。
 
 **決済機能について**
-Stripeを使用します
-公式リンク：https://stripe.com/jp
-コンビニ支払い、カード支払いを設定していますがコンビニ支払い選択でレシート印刷画面に遷移するため、カード支払いをテストカードにて行い予定の画面遷移を行います。
-.envにAPIキーを設定する
+<br>Stripeを使用します</br>
+<br>公式リンク：https://stripe.com/jp</br>
+<br>コンビニ支払い、カード支払いを設定していますがコンビニ支払い選択でレシート印刷画面に遷移するため、カード支払いをテストカードにて行い予定の画面遷移を行います。</br>
+<br>.envにAPIキーを設定する</br>
 ``` text
 STRIPE_PUBLIC_KEY=
 STRIPE_SECRET_KEY=
@@ -68,7 +68,7 @@ STRIPE_WEBHOOK_SECRET=
 ```
 
 **PHPUnitテストについて**
-vendor/bin/phpunit コマンドにて実行
+<br>vendor/bin/phpunit コマンドにて実行</br>
 
 ## 使用技術(実行環境)
 - PHP8.3.0
@@ -76,6 +76,8 @@ vendor/bin/phpunit コマンドにて実行
 - MySQL8.0.26
 
 ## テーブル設計
+<img width="819" height="151" alt="スクリーンショット 2026-03-22 21 35 43" src="https://github.com/user-attachments/assets/f3a5edda-454c-4378-879c-756b514bfd99" />
+<img width="818" height="211" alt="スクリーンショット 2026-03-22 21 36 13" src="https://github.com/user-attachments/assets/76831807-5ddb-483a-abc5-0ce736ddc87e" />
 
 
 ## ER図
