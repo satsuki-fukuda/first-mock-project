@@ -50,7 +50,7 @@ MAIL_PORT=1025
 MAIL_USERNAME=null
 MAIL_PASSWORD=null
 MAIL_ENCRYPTION=null
-MAIL_FROM_ADDRESS=任意のメールアドレス
+MAIL_FROM_ADDRESS=hello.example.com
 ```
 3. ブラウザで http://localhost:8025 にアクセスします
 4. アプリケーションからメールを送信します。
@@ -65,9 +65,12 @@ STRIPE_PUBLIC_KEY=
 STRIPE_SECRET_KEY=
 STRIPE_WEBHOOK_SECRET=
 ```
+Webhook署名について
+<br>ローカル開発時は Stripe CLI でstripe listen --forward-to localhost:8080/webhookを実行して取得</br>
+<br>本番環境ではStripeダッシュボードのWebhook設定から取得</br>
 
 **PHPUnitテストについて**
-<br>vendor/bin/phpunit コマンドにて実行</br>
+<br>phpコンテナにてvendor/bin/phpunit tests コマンドにて実行</br>
 
 ## 使用技術(実行環境)
 - PHP8.3.0
